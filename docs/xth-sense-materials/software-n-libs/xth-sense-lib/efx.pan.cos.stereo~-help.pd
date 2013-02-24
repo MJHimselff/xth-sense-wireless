@@ -1,0 +1,17 @@
+#N canvas 734 295 458 359 10;
+#X obj 35 299 dac~;
+#X obj 34 15 osc~ 300;
+#X obj 35 156 mix.ch.stereo~;
+#X text 226 90 I/O;
+#X floatatom 145 57 5 0 1 0 - - -;
+#X obj 34 87 efx.pan.cos.stereo~;
+#X text 225 53 A coseno stereo panner.;
+#X text 226 108 Stereo > Stereo;
+#X obj 88 44 osc~ 400;
+#X connect 1 0 5 0;
+#X connect 2 0 0 0;
+#X connect 2 1 0 1;
+#X connect 4 0 5 2;
+#X connect 5 0 2 0;
+#X connect 5 1 2 1;
+#X connect 8 0 5 1;

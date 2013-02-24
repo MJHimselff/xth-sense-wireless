@@ -1,0 +1,14 @@
+#N canvas 647 237 581 400 10;
+#X text 103 152 I/O;
+#X obj -70 345 dac~;
+#X obj -71 208 mix.ch.stereo~;
+#X obj -71 51 osc~ 400;
+#X text 103 170 Stereo > Stereo;
+#X text 101 82 From Pd audio example H09.ssb.modulation;
+#X obj -72 111 efx.pshift.ssb~;
+#X text 99 64 A single sideband modulation aka pitch shifting;
+#X connect 2 0 1 0;
+#X connect 2 1 1 1;
+#X connect 3 0 6 0;
+#X connect 6 0 2 0;
+#X connect 6 1 2 1;

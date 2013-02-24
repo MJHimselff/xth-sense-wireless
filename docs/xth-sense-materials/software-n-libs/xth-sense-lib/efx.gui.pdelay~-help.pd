@@ -1,0 +1,29 @@
+#N canvas 643 257 615 534 10;
+#X declare -lib soundhack;
+#X text 201 248 I/O;
+#X obj -1 470 dac~;
+#X obj -2 333 mix.ch.stereo~;
+#X obj -2 195 efx.gui.pdelay~;
+#X obj -4 73 osc~ 400;
+#X obj 67 95 gui.ead~;
+#X obj 67 69 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj -3 157 *~;
+#X text 201 266 Mono > Mono;
+#X text 192 117 Soundhack modules ported to Pd by:;
+#X text 191 131 Tom Erbe \, William Brent \, Daniel Arias \,;
+#X text 192 145 Bryan Oczkowsky \, Trevor LeVieux.;
+#X text 192 170 http://www.soundhack.com/externs.php;
+#X text 191 103 GOP and sssad wrap for [+pitchdelay~] \, included in
+;
+#X obj 200 323 import soundhack;
+#X text 199 302 Needs soundhack;
+#X connect 2 0 1 0;
+#X connect 2 1 1 1;
+#X connect 3 0 2 0;
+#X connect 3 0 2 1;
+#X connect 4 0 7 0;
+#X connect 5 0 7 1;
+#X connect 6 0 5 0;
+#X connect 7 0 3 0;
+#X coords 0 0 1 1 157 117 0;

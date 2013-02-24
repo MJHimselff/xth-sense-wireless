@@ -1,0 +1,881 @@
+#N canvas 42 142 248 469 10;
+#X declare -lib iemlib;
+#X declare -lib mrpeach;
+#X declare -lib moocow;
+#X declare -lib iemgui;
+#X declare -path lib;
+#X declare -lib moonlib;
+#X declare -path images;
+#X declare -lib cyclone;
+#X declare -lib iemguts;
+#X declare -lib soundhack;
+#X declare -lib xth-sense-lib;
+#N canvas 48 183 941 659 main.ui.container 0;
+#N canvas 222 476 589 247 dependencies 0;
+#X obj 375 52 import iemlib;
+#X obj 375 71 import mrpeach;
+#X obj 468 71 import moocow;
+#X obj 468 90 import iemgui;
+#X obj 40 195 declare -path lib;
+#X obj 468 52 import moonlib;
+#X obj 40 214 declare -path images;
+#X text 37 21 in pd-externals;
+#X text 371 30 -----------------;
+#X text 373 21 in extra;
+#X text 37 161 in xth-sense software folder;
+#X text 35 170 ------------------------------;
+#X obj 375 90 import cyclone;
+#X obj 169 52 import iemguts;
+#X text 35 30 -------------------------------------;
+#X obj 169 72 import soundhack;
+#X text 373 166 The Sequence module is a fork of \; the timeline developed
+in the \; Visual Tracker software by \; Ales Cerny.;
+#X obj 39 52 import xth-sense-lib;
+#X restore 345 279 pd dependencies;
+#N canvas 943 212 481 609 presetstore3 0;
+#X obj 10 10 r presetstore3;
+#X msg 10 30;
+#X connect 0 0 1 0;
+#X restore 345 462 pd presetstore3;
+#N canvas 96 167 447 633 presetstore2 0;
+#X obj 10 10 r presetstore2;
+#X msg 10 30 \; SSSAD /input.2b/go.onoff 0 \; SSSAD /input.2a/go.onoff
+1 \; SSSAD /in.2/punch 2 \; SSSAD /in.2/thresh 62 \; SSSAD /input.1b/go.onoff
+0 \; SSSAD /input.1a/go.onoff 1 \; SSSAD /in.1/punch 2 \; SSSAD /in.1/thresh
+62 \; SSSAD /sw1/switch~ 0 \; SSSAD /sw6/switch~ 0 \; SSSAD /sw5/switch~
+0 \; SSSAD /sw3/switch~ 0 \; SSSAD /sw2/switch~ 0 \; SSSAD /sw4/switch~
+0 \; SSSAD /sc2.8/max 127 \; SSSAD /sc2.8/min 0 \; SSSAD /sc2.7/max
+127 \; SSSAD /sc2.7/min 0 \; SSSAD /sc2.6/max 127 \; SSSAD /sc2.6/min
+0 \; SSSAD /sc2.5/max 127 \; SSSAD /sc2.5/min 0 \; SSSAD /sc2.4/max
+127 \; SSSAD /sc2.4/min 0 \; SSSAD /sc2.3/max 127 \; SSSAD /sc2.3/min
+0 \; SSSAD /sc2.2/max 127 \; SSSAD /sc2.2/min 0 \; SSSAD /sc2.1/max
+127 \; SSSAD /sc2.1/min 0 \; SSSAD /cv2.8/curve 5 \; SSSAD /cv2.7/curve
+5 \; SSSAD /cv2.6/curve 5 \; SSSAD /cv2.5/curve 5 \; SSSAD /cv2.4/curve
+5 \; SSSAD /cv2.3/curve 5 \; SSSAD /cv2.2/curve 5 \; SSSAD /cv2.1/curve
+5 \; SSSAD /sc1.8/max 127 \; SSSAD /sc1.8/min 0 \; SSSAD /sc1.7/max
+127 \; SSSAD /sc1.7/min 0 \; SSSAD /sc1.6/max 127 \; SSSAD /sc1.6/min
+0 \; SSSAD /sc1.5/max 127 \; SSSAD /sc1.5/min 0 \; SSSAD /sc1.4/max
+127 \; SSSAD /sc1.4/min 0 \; SSSAD /sc1.3/max 127 \; SSSAD /sc1.3/min
+0 \; SSSAD /sc1.2/max 127 \; SSSAD /sc1.2/min 0 \; SSSAD /cv1.8/curve
+5 \; SSSAD /cv1.7/curve 5 \; SSSAD /cv1.6/curve 5 \; SSSAD /cv1.5/curve
+5 \; SSSAD /cv1.4/curve 5 \; SSSAD /cv1.3/curve 5 \; SSSAD /cv1.2/curve
+5 \; SSSAD /sc1.1/max 127 \; SSSAD /sc1.1/min 0 \; SSSAD /cv1.1/curve
+5 \; SSSAD /analysis/switch~ 0 \; SSSAD_ADMIN set \;;
+#X connect 0 0 1 0;
+#X restore 345 442 pd presetstore2;
+#N canvas 996 226 454 563 presetstore1 0;
+#X obj 10 10 r presetstore1;
+#X msg 10 30;
+#X connect 0 0 1 0;
+#X restore 345 422 pd presetstore1;
+#N canvas 1026 402 433 313 presetstore0 0;
+#X obj 10 10 r presetstore0;
+#X msg 10 30;
+#X connect 0 0 1 0;
+#X restore 345 402 pd presetstore0;
+#N canvas 979 231 450 300 presetstore4 0;
+#X obj 10 10 r presetstore4;
+#X msg 10 30;
+#X connect 0 0 1 0;
+#X restore 345 482 pd presetstore4;
+#N canvas 981 213 450 300 presetstore5 0;
+#X obj 10 10 r presetstore5;
+#X msg 10 30;
+#X connect 0 0 1 0;
+#X restore 345 502 pd presetstore5;
+#N canvas 984 257 450 300 presetstore6 0;
+#X obj 10 10 r presetstore6;
+#X msg 10 30;
+#X connect 0 0 1 0;
+#X restore 345 522 pd presetstore6;
+#N canvas 1023 226 450 300 presetstore7 0;
+#X obj 10 10 r presetstore7;
+#X msg 10 30;
+#X connect 0 0 1 0;
+#X restore 345 542 pd presetstore7;
+#N canvas 377 464 399 146 sssad-prefix 0;
+#X text 43 39 CHANNEL STRIP: /ch1 \, /ch2 \, ...;
+#X text 45 21 WORKSPACES: /wp1/1 \, /wp1/2 \, ...;
+#X text 44 58 PARAMS ROUTER: /pr1/1 \, /pr1/1 \, ...;
+#X text 133 75 /cv1/1 \, /cv1/2 \, ...;
+#X text 133 92 /sn1/1 \, /sn1/2 \, ...;
+#X restore 345 300 pd sssad-prefix;
+#N canvas 54 419 207 300 param-msg-syntax 0;
+#X text 30 62 MASTER.TANH.1;
+#X text 30 42 MASTER.IN.1;
+#X text 30 82 MASTER.LASTMAX.1;
+#X restore 345 320 pd param-msg-syntax;
+#N canvas 1054 229 450 300 presetstore8 0;
+#X obj 10 10 r presetstore8;
+#X msg 10 30;
+#X connect 0 0 1 0;
+#X restore 345 563 pd presetstore8;
+#N canvas 980 258 450 300 presetstore9 0;
+#X obj 10 10 r presetstore9;
+#X msg 10 30;
+#X connect 0 0 1 0;
+#X restore 345 583 pd presetstore9;
+#N canvas 343 315 321 248 debug 0;
+#X obj 24 59 r SSSAD;
+#X obj 24 81 print;
+#X restore 34 488 pd debug;
+#N canvas 786 328 450 300 dev 0;
+#X obj 228 223 list-l2s;
+#X obj 161 0 r \$0-user-choice;
+#X msg 161 249 d;
+#X msg 209 44 symbol;
+#X obj 209 63 t b s;
+#X obj 161 92 symbol2list _;
+#X obj 188 145 list-len;
+#X obj 209 22 loadbang;
+#X obj 161 200 list-drip;
+#X obj 161 227 print;
+#X obj 161 124 t l l;
+#X floatatom 188 164 5 0 0 0 - - -;
+#X obj -64 67 split_path;
+#X obj -7 118 s \$0-user-choice;
+#X obj -7 94 stripfilename -3;
+#X connect 1 0 5 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 1 5 1;
+#X connect 5 0 10 0;
+#X connect 6 0 11 0;
+#X connect 7 0 3 0;
+#X connect 8 0 9 0;
+#X connect 10 0 8 0;
+#X connect 10 1 6 0;
+#X connect 12 1 14 0;
+#X connect 14 0 13 0;
+#X restore 34 507 pd dev;
+#N canvas 671 407 457 181 display-subpatches 0;
+#X msg 164 63 \; pd-workspaces vis 1;
+#X obj 164 39 r \$0-vis-workspaces;
+#X msg 44 63 \; pd-adc.in vis 1 \;;
+#X obj 44 39 r \$0-vis-adc-in;
+#X obj 294 39 r \$0-vis-dependencies;
+#X msg 294 63 \; pd-dependencies vis 1;
+#X obj 44 108 r \$0-vis-structure;
+#X msg 44 133 \; pd-structure vis 1 \;;
+#X connect 1 0 0 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 6 0 7 0;
+#X restore 345 102 pd display-subpatches;
+#X text 342 132 /// SUBPACTHES;
+#X text 343 259 /// INFORMATION;
+#X text 342 384 /// PRESETSTORE;
+#N canvas 1198 230 225 179 changelog_and_todo 0;
+#X obj 32 16 bng 15 250 50 0 empty \$0-vis-change-log empty 17 7 0
+10 -262144 -1 -1;
+#X obj 32 126 shell;
+#X obj 82 68 bng 15 250 50 0 empty \$0-vis-todo empty 17 7 0 10 -262144
+-1 -1;
+#X msg 32 40 gedit CHANGE-LOG.txt;
+#X msg 82 90 gedit TODO.txt;
+#X connect 0 0 3 0;
+#X connect 2 0 4 0;
+#X connect 3 0 1 0;
+#X connect 4 0 1 0;
+#X restore 345 341 pd changelog_and_todo;
+#N canvas 159 272 254 130 Inputs 0;
+#N canvas 198 171 450 519 old-filters-bank 0;
+#X obj 106 34 inlet~;
+#X obj 107 430 outlet~;
+#X obj 107 78 lop~ 70;
+#X obj 107 99 lop~ 70;
+#X obj 107 120 lop~ 70;
+#X obj 107 142 lop~ 70;
+#X obj 170 78 hip~ 1;
+#X obj 171 111 hip~ 15;
+#X obj 268 110 hip~ 15;
+#X obj 268 183 bp~ 99 23;
+#X obj 171 136 hip~ 20;
+#X obj 170 160 hip~ 25;
+#X obj 268 135 hip~ 30;
+#X obj 267 159 hip~ 40;
+#X obj 171 185 bp~ 35 33;
+#X obj 171 211 *~ 4;
+#X obj 269 206 *~ 4;
+#X obj 50 79 lop~ 50;
+#X obj 50 100 lop~ 50;
+#X obj 50 121 lop~ 50;
+#X obj 50 143 lop~ 50;
+#X obj 107 172 *~ 4;
+#X obj 50 172 *~ 4;
+#X connect 0 0 2 0;
+#X connect 0 0 6 0;
+#X connect 0 0 17 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 21 0;
+#X connect 6 0 7 0;
+#X connect 6 0 8 0;
+#X connect 7 0 10 0;
+#X connect 8 0 12 0;
+#X connect 9 0 16 0;
+#X connect 10 0 11 0;
+#X connect 11 0 14 0;
+#X connect 12 0 13 0;
+#X connect 13 0 9 0;
+#X connect 14 0 15 0;
+#X connect 15 0 1 0;
+#X connect 16 0 1 0;
+#X connect 17 0 18 0;
+#X connect 18 0 19 0;
+#X connect 19 0 20 0;
+#X connect 20 0 22 0;
+#X connect 21 0 1 0;
+#X connect 22 0 1 0;
+#X restore 4 210 pd old-filters-bank;
+#N canvas 304 545 349 297 old-treshold 0;
+#X obj 102 15 inlet~;
+#X obj 102 220 outlet~;
+#X obj 101 51 env~;
+#X floatatom 134 52 5 0 0 0 - - -;
+#X obj 204 136 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 101 97 t b;
+#X msg 101 119 0;
+#X obj 151 97 t b;
+#X msg 151 119 1;
+#X floatatom 174 51 5 0 0 0 - - -;
+#X obj 101 76 moses 62;
+#X obj 101 161 sig~;
+#X obj 102 188 lop~ 0.2;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 2 0 10 0;
+#X connect 5 0 6 0;
+#X connect 6 0 4 0;
+#X connect 6 0 11 0;
+#X connect 7 0 8 0;
+#X connect 8 0 4 0;
+#X connect 8 0 11 0;
+#X connect 9 0 10 1;
+#X connect 10 0 5 0;
+#X connect 10 1 7 0;
+#X connect 11 0 12 0;
+#X connect 12 0 1 0;
+#X restore 5 232 pd old-treshold;
+#X obj 122 165 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#N canvas 398 276 442 184 route-ardour-msg 0;
+#X obj 213 41 r transport_stop;
+#X obj 104 41 r transport_play;
+#X msg 104 63 1;
+#X msg 213 62 0;
+#X obj 104 103 outlet;
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 3 0 4 0;
+#X restore 122 142 pd route-ardour-msg;
+#X obj 5 186 utils.rec.mono~ recs;
+#X connect 2 0 4 1;
+#X connect 3 0 2 0;
+#X coords 0 0 1 1 45 20 0;
+#X restore 345 151 pd Inputs;
+#N canvas 401 86 1013 229 Sequence 0;
+#X obj 0 -68 cnv 15 16020 228 empty empty empty 20 12 0 14 -128992
+-66577 0;
+#N canvas 54 231 450 300 timeline 0;
+#X obj 0 100 cnv 15 16000 26 empty empty empty 20 12 0 14 -228856 -66577
+0;
+#X coords 0 -1 1 1 16020 26 2 0 100;
+#X restore 6 -24 pd timeline;
+#X obj 2 -59 time.sequence;
+#X restore 346 194 pd Sequence;
+#N canvas 302 24 1004 698 Deck 1;
+#X obj 0 -3 container.deck;
+#N canvas 438 150 931 343 workspace_4 0;
+#X obj 5 3 cnv 15 910 331 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#N canvas 517 262 571 415 totalcount 0;
+#X obj 106 103 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 130 102 5 0 0 0 - - -;
+#X obj 235 27 canvasindex;
+#X obj 298 199 send GLOBAL_OSC;
+#X obj 158 -19 loadbang;
+#X obj 298 56 t f f;
+#X obj 407 176 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 394 -22 t b b;
+#X obj 394 -48 r \$0-totalcount-temp;
+#X msg 343 -25 1;
+#X msg 421 10 0;
+#X obj 235 -51 trigger bang bang;
+#X obj 298 90 spigot 1;
+#X obj 235 -74 r \$0-w4.totalcount;
+#X msg 298 114 /c::ntr::l/w4/modulescount-on-deletion \$1;
+#X msg 325 147 /c::ntr::l/w4/modulescount \$1;
+#X connect 0 0 2 0;
+#X connect 2 1 1 0;
+#X connect 2 1 5 0;
+#X connect 4 0 2 0;
+#X connect 5 0 12 0;
+#X connect 5 1 15 0;
+#X connect 7 0 2 0;
+#X connect 7 1 10 0;
+#X connect 8 0 7 0;
+#X connect 9 0 12 1;
+#X connect 10 0 12 1;
+#X connect 11 0 2 0;
+#X connect 11 1 9 0;
+#X connect 12 0 14 0;
+#X connect 13 0 11 0;
+#X connect 14 0 3 0;
+#X connect 15 0 3 0;
+#X connect 15 0 6 0;
+#X coords 0 -1 1 1 85 20 2 100 100;
+#X restore 225 348 pd totalcount;
+#N canvas 23 289 450 300 delete 0;
+#X obj 102 214 sendcanvas 1;
+#X msg 102 191 delete \$1;
+#X floatatom 129 123 5 0 0 0 - - -;
+#X obj 266 143 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 286 117 r pos-wksp4;
+#X obj 102 87 r \$0-w4.moduletodelete;
+#X obj 286 140 canvasposition 1;
+#X connect 1 0 0 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 1 0;
+#X connect 5 0 2 0;
+#X restore 137 349 pd delete;
+#X obj 49 350 canvasdelete;
+#X obj 10 334 switch~;
+#X obj 852 11 utils.gui.showpatch workspace_4 edit;
+#X obj 10 309 utils.gui.switch~ /sw4;
+#X connect 6 0 4 0;
+#X coords 0 -1 1 1 922 340 2 0 0;
+#X restore 17 755 pd workspace_4;
+#N canvas 395 130 932 344 workspace_2 0;
+#X obj 6 3 cnv 15 910 331 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#N canvas 517 262 571 415 totalcount 0;
+#X obj 106 103 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 130 102 5 0 0 0 - - -;
+#X obj 235 27 canvasindex;
+#X obj 298 199 send GLOBAL_OSC;
+#X obj 158 -19 loadbang;
+#X obj 298 56 t f f;
+#X obj 407 176 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 394 -22 t b b;
+#X msg 343 -25 1;
+#X msg 421 10 0;
+#X obj 235 -51 trigger bang bang;
+#X obj 298 90 spigot 1;
+#X obj 235 -74 r \$0-w2.totalcount;
+#X msg 298 114 /c::ntr::l/w2/modulescount-on-deletion \$1;
+#X msg 325 147 /c::ntr::l/w2/modulescount \$1;
+#X obj 394 -48 r \$0-w2.totalcount-temp;
+#X connect 0 0 2 0;
+#X connect 2 1 1 0;
+#X connect 2 1 5 0;
+#X connect 4 0 2 0;
+#X connect 5 0 11 0;
+#X connect 5 1 14 0;
+#X connect 7 0 2 0;
+#X connect 7 1 9 0;
+#X connect 8 0 11 1;
+#X connect 9 0 11 1;
+#X connect 10 0 2 0;
+#X connect 10 1 8 0;
+#X connect 11 0 13 0;
+#X connect 12 0 10 0;
+#X connect 13 0 3 0;
+#X connect 14 0 3 0;
+#X connect 14 0 6 0;
+#X connect 15 0 7 0;
+#X coords 0 -1 1 1 85 20 2 100 100;
+#X restore 243 343 pd totalcount;
+#N canvas 23 289 450 300 delete 0;
+#X obj 102 214 sendcanvas 1;
+#X msg 102 191 delete \$1;
+#X floatatom 129 123 5 0 0 0 - - -;
+#X obj 266 143 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 286 140 canvasposition 1;
+#X obj 286 117 r pos-wksp2;
+#X obj 102 87 r \$0-w2.moduletodelete;
+#X connect 1 0 0 0;
+#X connect 3 0 4 0;
+#X connect 5 0 4 0;
+#X connect 6 0 1 0;
+#X connect 6 0 2 0;
+#X restore 163 344 pd delete;
+#X obj 65 344 canvasdelete;
+#X obj 10 334 switch~;
+#X obj 852 11 utils.gui.showpatch workspace_2 edit;
+#X obj 10 309 utils.gui.switch~ /sw2;
+#X connect 6 0 4 0;
+#X coords 0 -1 1 1 922 340 2 0 0;
+#X restore 17 755 pd workspace_2;
+#N canvas 434 204 927 347 workspace_3 0;
+#X obj 6 4 cnv 15 910 331 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#N canvas 517 262 571 415 totalcount 0;
+#X obj 106 103 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 130 102 5 0 0 0 - - -;
+#X obj 235 27 canvasindex;
+#X obj 298 199 send GLOBAL_OSC;
+#X obj 158 -19 loadbang;
+#X obj 298 56 t f f;
+#X obj 407 176 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 394 -22 t b b;
+#X obj 394 -48 r \$0-totalcount-temp;
+#X msg 343 -25 1;
+#X msg 421 10 0;
+#X obj 235 -51 trigger bang bang;
+#X obj 298 90 spigot 1;
+#X obj 235 -74 r \$0-w3.totalcount;
+#X msg 298 114 /c::ntr::l/w3/modulescount-on-deletion \$1;
+#X msg 325 147 /c::ntr::l/w3/modulescount \$1;
+#X connect 0 0 2 0;
+#X connect 2 1 1 0;
+#X connect 2 1 5 0;
+#X connect 4 0 2 0;
+#X connect 5 0 12 0;
+#X connect 5 1 15 0;
+#X connect 7 0 2 0;
+#X connect 7 1 10 0;
+#X connect 8 0 7 0;
+#X connect 9 0 12 1;
+#X connect 10 0 12 1;
+#X connect 11 0 2 0;
+#X connect 11 1 9 0;
+#X connect 12 0 14 0;
+#X connect 13 0 11 0;
+#X connect 14 0 3 0;
+#X connect 15 0 3 0;
+#X connect 15 0 6 0;
+#X coords 0 -1 1 1 85 20 2 100 100;
+#X restore 223 351 pd totalcount;
+#N canvas 23 289 450 300 delete 0;
+#X obj 102 214 sendcanvas 1;
+#X msg 102 191 delete \$1;
+#X floatatom 129 123 5 0 0 0 - - -;
+#X obj 266 143 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 286 140 canvasposition 1;
+#X obj 102 87 r \$0-w3.moduletodelete;
+#X obj 286 117 r pos-wksp3;
+#X connect 1 0 0 0;
+#X connect 3 0 4 0;
+#X connect 5 0 1 0;
+#X connect 5 0 2 0;
+#X connect 6 0 4 0;
+#X restore 145 353 pd delete;
+#X obj 47 353 canvasdelete;
+#X obj 10 334 switch~;
+#X obj 852 11 utils.gui.showpatch workspace_3 edit;
+#X obj 10 309 utils.gui.switch~ /sw3;
+#X connect 6 0 4 0;
+#X coords 0 -1 1 1 922 340 2 0 0;
+#X restore 17 755 pd workspace_3;
+#N canvas 430 147 940 347 workspace_5 0;
+#X obj 6 2 cnv 15 910 331 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#N canvas 517 262 571 415 totalcount 0;
+#X obj 106 103 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 130 102 5 0 0 0 - - -;
+#X obj 235 27 canvasindex;
+#X obj 298 199 send GLOBAL_OSC;
+#X obj 158 -19 loadbang;
+#X obj 298 56 t f f;
+#X obj 407 176 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 394 -22 t b b;
+#X obj 394 -48 r \$0-totalcount-temp;
+#X msg 343 -25 1;
+#X msg 421 10 0;
+#X obj 235 -51 trigger bang bang;
+#X obj 298 90 spigot 1;
+#X obj 235 -74 r \$0-w4.totalcount;
+#X msg 298 114 /c::ntr::l/w4/modulescount-on-deletion \$1;
+#X msg 325 147 /c::ntr::l/w4/modulescount \$1;
+#X connect 0 0 2 0;
+#X connect 2 1 1 0;
+#X connect 2 1 5 0;
+#X connect 4 0 2 0;
+#X connect 5 0 12 0;
+#X connect 5 1 15 0;
+#X connect 7 0 2 0;
+#X connect 7 1 10 0;
+#X connect 8 0 7 0;
+#X connect 9 0 12 1;
+#X connect 10 0 12 1;
+#X connect 11 0 2 0;
+#X connect 11 1 9 0;
+#X connect 12 0 14 0;
+#X connect 13 0 11 0;
+#X connect 14 0 3 0;
+#X connect 15 0 3 0;
+#X connect 15 0 6 0;
+#X coords 0 -1 1 1 85 20 2 100 100;
+#X restore 331 352 pd totalcount;
+#N canvas 29 312 450 300 delete 0;
+#X obj 102 214 sendcanvas 1;
+#X msg 102 191 delete \$1;
+#X floatatom 129 123 5 0 0 0 - - -;
+#X obj 266 143 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 286 140 canvasposition 1;
+#X obj 102 87 r \$0-w5.moduletodelete;
+#X obj 286 117 r pos-wksp5;
+#X connect 1 0 0 0;
+#X connect 3 0 4 0;
+#X connect 5 0 1 0;
+#X connect 5 0 2 0;
+#X connect 6 0 4 0;
+#X restore 243 353 pd delete;
+#X obj 155 354 canvasdelete;
+#X obj 10 341 switch~;
+#X obj 852 11 utils.gui.showpatch workspace_5 edit;
+#X obj 10 309 utils.gui.switch~ /sw5;
+#X connect 6 0 4 0;
+#X coords 0 -1 1 1 922 340 2 0 0;
+#X restore 17 755 pd workspace_5;
+#N canvas 443 138 927 347 workspace_6 0;
+#X obj 5 4 cnv 15 910 331 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#N canvas 517 262 571 415 totalcount 0;
+#X obj 106 103 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 130 102 5 0 0 0 - - -;
+#X obj 235 27 canvasindex;
+#X obj 298 199 send GLOBAL_OSC;
+#X obj 158 -19 loadbang;
+#X obj 298 56 t f f;
+#X obj 407 176 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 394 -22 t b b;
+#X obj 394 -48 r \$0-totalcount-temp;
+#X msg 343 -25 1;
+#X msg 421 10 0;
+#X obj 235 -51 trigger bang bang;
+#X obj 298 90 spigot 1;
+#X obj 235 -74 r \$0-w4.totalcount;
+#X msg 298 114 /c::ntr::l/w4/modulescount-on-deletion \$1;
+#X msg 325 147 /c::ntr::l/w4/modulescount \$1;
+#X connect 0 0 2 0;
+#X connect 2 1 1 0;
+#X connect 2 1 5 0;
+#X connect 4 0 2 0;
+#X connect 5 0 12 0;
+#X connect 5 1 15 0;
+#X connect 7 0 2 0;
+#X connect 7 1 10 0;
+#X connect 8 0 7 0;
+#X connect 9 0 12 1;
+#X connect 10 0 12 1;
+#X connect 11 0 2 0;
+#X connect 11 1 9 0;
+#X connect 12 0 14 0;
+#X connect 13 0 11 0;
+#X connect 14 0 3 0;
+#X connect 15 0 3 0;
+#X connect 15 0 6 0;
+#X coords 0 -1 1 1 85 20 2 100 100;
+#X restore 199 351 pd totalcount;
+#N canvas 35 335 450 300 delete 0;
+#X obj 102 214 sendcanvas 1;
+#X msg 102 191 delete \$1;
+#X floatatom 129 123 5 0 0 0 - - -;
+#X obj 266 143 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 286 140 canvasposition 1;
+#X obj 286 117 r pos-wksp6;
+#X obj 102 87 r \$0-w6.moduletodelete;
+#X connect 1 0 0 0;
+#X connect 3 0 4 0;
+#X connect 5 0 4 0;
+#X connect 6 0 1 0;
+#X connect 6 0 2 0;
+#X restore 111 352 pd delete;
+#X obj 23 353 canvasdelete;
+#X obj 10 334 switch~;
+#X obj 852 11 utils.gui.showpatch workspace_6 edit;
+#X obj 10 309 utils.gui.switch~ /sw6;
+#X connect 6 0 4 0;
+#X coords 0 -1 1 1 922 340 2 0 0;
+#X restore 17 755 pd workspace_6;
+#N canvas 213 469 764 218 workspace_1 1;
+#X obj 5 4 cnv 15 910 331 empty empty empty 20 12 0 14 -162280 -66577
+0;
+#N canvas 523 285 571 415 totalcount 0;
+#X obj 106 103 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 130 102 5 0 0 0 - - -;
+#X obj 235 27 canvasindex;
+#X obj 298 199 send GLOBAL_OSC;
+#X obj 158 -19 loadbang;
+#X obj 298 56 t f f;
+#X obj 407 176 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 394 -22 t b b;
+#X obj 394 -48 r \$0-totalcount-temp;
+#X msg 343 -25 1;
+#X msg 421 10 0;
+#X obj 235 -51 trigger bang bang;
+#X obj 298 90 spigot 1;
+#X obj 235 -74 r \$0-w1.totalcount;
+#X msg 298 114 /c::ntr::l/w1/modulescount-on-deletion \$1;
+#X msg 325 147 /c::ntr::l/w1/modulescount \$1;
+#X connect 0 0 2 0;
+#X connect 2 1 1 0;
+#X connect 2 1 5 0;
+#X connect 4 0 2 0;
+#X connect 5 0 12 0;
+#X connect 5 1 15 0;
+#X connect 7 0 2 0;
+#X connect 7 1 10 0;
+#X connect 8 0 7 0;
+#X connect 9 0 12 1;
+#X connect 10 0 12 1;
+#X connect 11 0 2 0;
+#X connect 11 1 9 0;
+#X connect 12 0 14 0;
+#X connect 13 0 11 0;
+#X connect 14 0 3 0;
+#X connect 15 0 3 0;
+#X connect 15 0 6 0;
+#X coords 0 -1 1 1 85 20 2 100 100;
+#X restore 304 351 pd totalcount;
+#N canvas 29 312 450 300 delete 0;
+#X obj 102 214 sendcanvas 1;
+#X msg 102 191 delete \$1;
+#X floatatom 129 123 5 0 0 0 - - -;
+#X obj 266 143 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 286 140 canvasposition 1;
+#X obj 286 117 r pos-wksp1;
+#X obj 102 87 r \$0-w1.moduletodelete;
+#X connect 1 0 0 0;
+#X connect 3 0 4 0;
+#X connect 5 0 4 0;
+#X connect 6 0 1 0;
+#X connect 6 0 2 0;
+#X restore 225 353 pd delete;
+#X obj 127 353 canvasdelete;
+#X obj 10 345 switch~;
+#X obj 852 11 utils.gui.showpatch workspace_1 edit;
+#X obj 10 309 utils.gui.switch~ /sw1;
+#X obj 49 24 mix.set.in~ 1;
+#X obj 50 107 mix.set.ch~ one;
+#X obj 59 59 efx.pshift.ssb~ 80;
+#X connect 6 0 4 0;
+#X connect 7 0 9 0;
+#X connect 9 0 8 0;
+#X coords 0 -1 1 1 922 340 2 0 0;
+#X restore 17 18 pd workspace_1;
+#X restore 345 172 pd Deck;
+#N canvas 1026 402 433 313 presetstore10 0;
+#X msg 10 30;
+#X obj 10 10 r presetstore10;
+#X connect 1 0 0 0;
+#X restore 445 402 pd presetstore10;
+#N canvas 996 226 454 563 presetstore11 0;
+#X msg 10 30;
+#X obj 10 10 r presetstore11;
+#X connect 1 0 0 0;
+#X restore 445 422 pd presetstore11;
+#N canvas 995 170 447 633 presetstore12 0;
+#X msg 10 30;
+#X obj 10 10 r presetstore12;
+#X connect 1 0 0 0;
+#X restore 445 442 pd presetstore12;
+#N canvas 949 233 481 609 presetstore13 0;
+#X msg 10 30;
+#X obj 10 10 r presetstore13;
+#X connect 1 0 0 0;
+#X restore 445 462 pd presetstore13;
+#N canvas 985 254 450 300 presetstore14 0;
+#X msg 10 30;
+#X obj 10 10 r presetstore14;
+#X connect 1 0 0 0;
+#X restore 445 482 pd presetstore14;
+#N canvas 987 236 450 300 presetstore15 0;
+#X msg 10 30;
+#X obj 10 10 r presetstore15;
+#X connect 1 0 0 0;
+#X restore 445 502 pd presetstore15;
+#N canvas 990 280 450 300 presetstore16 0;
+#X msg 10 30;
+#X obj 10 10 r presetstore16;
+#X connect 1 0 0 0;
+#X restore 445 522 pd presetstore16;
+#N canvas 1029 249 450 300 presetstore17 0;
+#X msg 10 30;
+#X obj 10 10 r presetstore17;
+#X connect 1 0 0 0;
+#X restore 445 542 pd presetstore17;
+#N canvas 1060 252 450 300 presetstore18 0;
+#X msg 10 30;
+#X obj 10 10 r presetstore18;
+#X connect 1 0 0 0;
+#X restore 445 563 pd presetstore18;
+#N canvas 986 281 450 300 presetstore19 0;
+#X msg 10 30;
+#X obj 10 10 r presetstore19;
+#X connect 1 0 0 0;
+#X restore 445 583 pd presetstore19;
+#N canvas 757 293 450 300 structurestore0 0;
+#X obj 10 10 r structurestore0;
+#X msg 10 30 \; SSSAD-EVE 266/pre.n 15 \; SSSAD-EVE 118/pre.n 3 \;
+SSSAD-EVE_ADMIN set \;;
+#X connect 0 0 1 0;
+#X restore 588 384 pd structurestore0;
+#N canvas 18 93 450 300 structurestore1 0;
+#X obj 10 10 r structurestore1;
+#X msg 10 30 \; SSSAD-EVE_ADMIN set \;;
+#X connect 0 0 1 0;
+#X restore 588 404 pd structurestore1;
+#N canvas 6 47 450 300 structurestore2 0;
+#X restore 588 424 pd structurestore2;
+#N canvas 6 47 450 300 structurestore3 0;
+#X restore 588 444 pd structurestore3;
+#N canvas 6 47 450 300 structurestore4 0;
+#X restore 588 464 pd structurestore4;
+#N canvas 6 47 450 300 structurestore5 0;
+#X restore 588 484 pd structurestore5;
+#N canvas 6 47 450 300 structurestore6 0;
+#X obj 10 10 r structurestore6;
+#X msg 10 30 \; SSSAD-EVE_ADMIN set \;;
+#X connect 0 0 1 0;
+#X restore 588 504 pd structurestore6;
+#N canvas 6 47 450 300 structurestore7 0;
+#X restore 588 524 pd structurestore7;
+#N canvas 6 47 450 300 structurestore8 0;
+#X restore 588 544 pd structurestore8;
+#N canvas 6 47 450 300 structurestore9 0;
+#X restore 588 564 pd structurestore9;
+#N canvas 6 47 450 300 structurestore10 0;
+#X restore 588 584 pd structurestore10;
+#N canvas 25 115 502 727 thresh.array0 0;
+#X obj 10 10 receive thresh.array0;
+#X msg 10 30 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52
+0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52 0.52;
+#X obj 5 50 send .;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X restore 727 386 pd thresh.array0;
+#N canvas 18 93 450 300 thresh.array1 0;
+#X restore 727 406 pd thresh.array1;
+#N canvas 6 115 502 727 thresh.array2 0;
+#X restore 727 426 pd thresh.array2;
+#N canvas 18 93 450 300 thresh.array3 0;
+#X restore 727 446 pd thresh.array3;
+#N canvas 12 115 502 727 thresh.array4 0;
+#X restore 727 466 pd thresh.array4;
+#N canvas 24 116 450 300 thresh.array5 0;
+#X restore 727 486 pd thresh.array5;
+#N canvas 12 115 502 727 thresh.array6 0;
+#X restore 727 506 pd thresh.array6;
+#N canvas 18 93 450 300 thresh.array7 0;
+#X restore 727 526 pd thresh.array7;
+#N canvas 12 115 502 727 thresh.array8 0;
+#X restore 727 546 pd thresh.array8;
+#N canvas 18 93 450 300 thresh.array9 0;
+#X restore 727 566 pd thresh.array9;
+#N canvas 18 93 450 300 thresh.array10 0;
+#X restore 727 586 pd thresh.array10;
+#N canvas 561 411 450 300 store-load-update_bpm_value 0;
+#X obj 126 59 r vt_from_bpm_gui;
+#X obj 126 86 prepend set;
+#X msg 126 126 120;
+#X obj 65 86 loadbang;
+#X obj 126 228 s bpm_to_loadbang;
+#X obj 126 158 t f f;
+#X obj 153 204 s vt_to_bpm_gui;
+#X msg 153 179 \$1;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 5 0;
+#X connect 3 0 2 0;
+#X connect 5 0 4 0;
+#X connect 5 1 7 0;
+#X connect 7 0 6 0;
+#X restore 587 341 pd store-load-update_bpm_value;
+#X coords 0 -1 1 1 233 452 2 100 100;
+#X restore 0 -143 pd main.ui.container;
+#X obj 0 -143 main.ui;

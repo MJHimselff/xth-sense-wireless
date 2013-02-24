@@ -1,0 +1,16 @@
+#N canvas 625 173 553 382 10;
+#X obj 32 64 efx.pshift.tape~;
+#X obj 32 280 dac~;
+#X obj 31 143 mix.ch.stereo~;
+#X obj 31 -14 osc~ 400;
+#X text 202 61 I/O;
+#X text 202 79 Mono > Stereo;
+#X text 200 -8 A wrap for a rotating-tape-head syle pitch shifter;
+#X text 201 9 From 3.audio.examples > G09.pitchshift.;
+#X floatatom 125 33 5 0 0 0 - - -;
+#X connect 0 0 2 0;
+#X connect 0 1 2 1;
+#X connect 2 0 1 0;
+#X connect 2 1 1 1;
+#X connect 3 0 0 0;
+#X connect 8 0 0 1;

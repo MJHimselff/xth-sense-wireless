@@ -1,0 +1,12 @@
+#N canvas 928 386 562 398 10;
+#X obj 25 27 osc~ 20;
+#X text 246 31 A scope visualizer. This is a slightly edited \; version
+of [anal.scope_~] in pdmtl library.;
+#X text 244 86 ARGUMENTS_;
+#X text 243 210 OUTLET;
+#X text 243 160 Audio input;
+#X text 243 144 INLETS;
+#X text 244 106 None;
+#X text 243 226 None;
+#X obj 24 66 anlz.scope~;
+#X connect 0 0 8 0;

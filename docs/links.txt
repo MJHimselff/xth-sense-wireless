@@ -1,0 +1,14 @@
+//////////////////////////// TUTORIALS ////////////////////////////
+Eagle tutorial
+http://itp.nyu.edu/physcomp/Tutorials/EagleCAD
+
+
+
+
+////////////////////////////// PARTS //////////////////////////////
+
+DIP JST connectors
+https://www.sparkfun.com/products/9749
+
+
+https://www.sparkfun.com/products/8614

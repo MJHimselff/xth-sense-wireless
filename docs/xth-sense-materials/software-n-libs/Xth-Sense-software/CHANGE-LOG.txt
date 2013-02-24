@@ -1,0 +1,65 @@
+Wed 4 Apr 2012
+- Fixed boring bug with Audio.ON/OFF switches
+- Sequence sliders now behave "Jump on click"
+- Swapped regular number boxes with [gui.nbx] for better responsiveness
+
+
+Mon 20 Feb 2012
+- Fixed bug with filter bypass button
+
+
+Tue 10 Jan 2012
+- Improved [Inputs] usability: 
+	.added modular GUI with dynamic [adc~]
+	.added filter bypass button (for use with any instrument)
+	.added [xsssad] capability to threshold and punch
+
+
+Mon 19 Dec 2011
+- Added [mix.set.in~] for dynamic sensor input dispatching
+- Minor GUI improvements
+- Added [flow.rhythm] for threshold/trigger
+
+
+Sat 26 Nov 2011
+- Added custom normalization and reverse of biosignals data to control values
+- Included credits to VisualTracker for the fork of Sequence
+- Light modification of [gui.sssad.send]
+
+
+Thu 10 Nov 2011
+- Added plugins folder
+- Added instrument-analysis.pd 
+
+
+Sun 30 Oct 2011
+- Removed rj dependency
+- Decreased cpu usage when idle (and audio on) from 16% to 9-11%, by adding switch~ to [mix.aux.stereo~] and [mix.ch.stereo~]
+
+
+Sat 29 Oct 2011
+- Fixed bad bug in [set-event] and structure creation; now functional
+- Added storage for bpm
+- Removed pdmtl dependency
+
+
+Thu 27 Oct 2011
+- Removed sssad-lib dependency
+- Imported sssad objects into xthsense lib for better portability
+- Updated all embedded [sssad] within xthsense objects
+- Imported [storage] from VisualTracker for better portability
+- Updated [pd bpm] after importing [inc.storage]
+- Removed puremapping dependency
+- Updated curve drawers
+
+
+Wed 26 Oct 2011
+- Finished structure programming, event creation for preset and timeline
+- Changed GUI main side window
+
+
+Wed 10 Aug 2011
+- Added [muscle.model~] for testing.
+- Added change-log and todo bangs to keep better track of development.
+- Trying to save CPU resources, without loosing resolution using [resample] instead of [speedlim] in [pd threshold].
+- Changed snapshot~ follower in [all.scaling]. Created [anlz.snap~] with [metro] resolution of 20ms.

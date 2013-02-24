@@ -1,0 +1,14 @@
+
+I installed OS X 10.6, which apparently defaults to compiling
+everything for 64 bit, and I'm still running a 32-bit build of
+Pd-extended.  So, trying to compile the latest iemguts gave me
+"Mach-o, but wrong architecture" when trying to load the now 64-bit
+compiled externals.
+
+The trick is to add -m32 to the CFLAGS and -arch i386 to the LDFLAGS
+in the Makefile to force gcc back to 32-bit mode (well, or use a
+64-bit Pd but that's for another day).
+
+
+Luke Iannini
+Fri Jun 26 17:09:22 CEST 2009

@@ -1,0 +1,11 @@
+#N canvas 700 264 766 296 10;
+#X text 258 89 1_ receives a lists (including the object arguments)
+;
+#X text 259 110 2_ parse the list: take out the argument and transform
+the list into a symbol;
+#X text 260 145 3_ store the symbol;
+#X text 260 168 4_ when prompted \, it feed the symbol to [iem_s];
+#X obj 56 31 gui.sssad.send;
+#X text 259 24 This object is used in the Xth Sense software \; It's
+an internal dynamic sender for data mapping.;
+#X coords 0 0 1 1 125 20 0;

@@ -1,0 +1,37 @@
+#N canvas 786 473 597 363 10;
+#X obj 33 38 osc~ 200;
+#X obj 33 66 *~ 0.5;
+#X obj 35 276 dac~;
+#X obj 154 66 *~ 0.5;
+#X obj 154 39 osc~ 400;
+#X obj 48 102 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 280 91 ARGUMENT;
+#X text 281 227 OUTLETS;
+#X text 282 161 INLETS;
+#X text 281 107 Receiver identifier;
+#X text 282 242 None;
+#X obj 48 125 utils.zipper~;
+#X obj 32 151 *~;
+#X obj 171 102 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 171 125 utils.zipper~;
+#X obj 155 151 *~;
+#X obj 33 184 mix.throw.stereo~ dog;
+#X text 282 50 To be used with [mix.catch.stereo~];
+#X obj 35 236 mix.catch.stereo~ dog;
+#X text 282 32 A wrap for a settable stereo thrower;
+#X text 282 178 Right audio channel;
+#X text 283 195 Left audio channel;
+#X connect 0 0 1 0;
+#X connect 1 0 12 0;
+#X connect 3 0 15 0;
+#X connect 4 0 3 0;
+#X connect 5 0 11 0;
+#X connect 11 0 12 1;
+#X connect 12 0 16 0;
+#X connect 13 0 14 0;
+#X connect 14 0 15 1;
+#X connect 15 0 16 1;
+#X connect 18 0 2 0;
+#X connect 18 1 2 1;
